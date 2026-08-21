@@ -1,0 +1,14 @@
+# Rust build artifacts
+/nanctl/target
+/nanctl/Cargo.lock
+/nanctl/plugins
+
+# archiso build artifacts (huge, regenerated every build)
+/archiso/*/work
+/archiso/*/out
+
+# C build artifacts
+/nanos-sysinfo/nanos-sysinfo
+
+# OS junk
+.DS_Store
