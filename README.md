@@ -27,10 +27,14 @@ nanos/
 4. **[Done] `nanos-sysinfo` in C**
    - reads /proc/meminfo, /proc/cpuinfo, /proc/loadavg directly, zero deps,
      wired into `nanctl status` as a subprocess
-5. **[Next] Welcome script polish (bash/zsh selection)**
-   - already present, needs testing on the real ISO
-6. **[Next] Desktop profile ISO (sway)**
-7. **[Next] Terminal configurator website**
+5. **[Done] Welcome script wired to real login (profile.d) + Oh My Zsh prompt**
+   - `/etc/profile.d/nanos-welcome.sh` sources `welcome.sh` on every login
+     shell; zsh path offers to install Oh My Zsh
+6. **[Done] nanctl / nanos-sysinfo / presets baked into the ISO**
+   - `bake-binaries.sh` builds and copies them into `airootfs/usr/local/bin`
+     and `airootfs/etc/nanos/presets` for both profiles
+7. **[Next] Desktop profile ISO (sway) — full boot + Firefox test**
+8. **[Next] Terminal configurator website**
    - separate project, generates a TOML/dotfile the user downloads
 
 ## How to start development right now
@@ -47,10 +51,18 @@ make
 sudo make install    # installs to /usr/local/bin/nanos-sysinfo
 ../nanctl/target/debug/nanctl status
 
-# 3. Once nanctl works — test the archiso build
+# 3. Once nanctl works — bake it (and nanos-sysinfo, and presets) into the
+#    ISO, set up bootloader configs, then build
 #    (requires Arch Linux or Arch in Docker/VM/WSL; archiso is unavailable
 #    on other distros)
-cd ../archiso/nanos-server
+sudo pacman -S archiso   # only needed once
+cd ../archiso
+./bake-binaries.sh                    # builds + copies nanctl, nanos-sysinfo,
+                                       # presets into airootfs
+./setup-boot-files.sh nanos-server    # pulls bootloader configs from releng,
+                                       # writes profiledef.sh, patches
+                                       # packages.x86_64 — safe to re-run
+cd nanos-server
 sudo mkarchiso -v -o out/ .
 ```
 
