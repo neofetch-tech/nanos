@@ -1,0 +1,6 @@
+nanctl/target
+nanctl/Cargo.lock
+nanctl/plugins
+archiso
+nanos-sysinfo/nanos-sysinfo
+.git

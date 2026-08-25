@@ -40,3 +40,18 @@ jobs:
       - name: Run it (sanity check)
         working-directory: ./nanos-sysinfo
         run: ./nanos-sysinfo
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: docker build -t nanctl:ci .
+
+      - name: Sanity check — run nanctl --help inside the container
+        run: docker run --rm nanctl:ci --help
+
+      - name: Sanity check — nanctl list (reads baked-in presets)
+        run: docker run --rm nanctl:ci list
