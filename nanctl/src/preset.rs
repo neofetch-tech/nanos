@@ -72,7 +72,7 @@ pub fn install(name: &str, dry_run: bool) -> Result<()> {
             preset.packages.pacman.join(", ")
         );
 
-        let mut cmd_args = vec!["-S".to_string(), "--noconfirm".to_string()];
+        let mut cmd_args = vec!["-Sy".to_string(), "--noconfirm".to_string()];
         cmd_args.extend(preset.packages.pacman.iter().cloned());
 
         if dry_run {

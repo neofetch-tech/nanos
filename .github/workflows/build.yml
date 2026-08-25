@@ -1,0 +1,42 @@
+name: Build check
+
+# Runs on every push and pull request targeting main.
+# This is the whole point of CI: catch a broken build automatically,
+# instead of finding out manually next time you clone the repo.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-nanctl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build nanctl
+        working-directory: ./nanctl
+        run: cargo build --release
+
+      - name: Run nanctl --help (sanity check the binary actually works)
+        working-directory: ./nanctl
+        run: ./target/release/nanctl --help
+
+  build-nanos-sysinfo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Build nanos-sysinfo
+        working-directory: ./nanos-sysinfo
+        run: make
+
+      - name: Run it (sanity check)
+        working-directory: ./nanos-sysinfo
+        run: ./nanos-sysinfo
