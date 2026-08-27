@@ -17,6 +17,8 @@ file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/etc/nanos/welcome.sh"]="0:0:755"
   ["/etc/profile.d/nanos-welcome.sh"]="0:0:755"
+  ["/etc/profile.d/nanos-neofetch.sh"]="0:0:755"
   ["/usr/local/bin/nanctl"]="0:0:755"
   ["/usr/local/bin/nanos-sysinfo"]="0:0:755"
+  ["/root/customize_airootfs.sh"]="0:0:755"
 )
