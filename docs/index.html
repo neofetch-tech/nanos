@@ -9,16 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0b08;
-    --bg-raised: #16130e;
-    --amber: #ffb000;
-    --amber-dim: #a66f00;
-    --amber-faint: #6b4a05;
-    --text: #f2c98a;
-    --text-dim: #9c8259;
-    --line: #3a2f1c;
+    --bg: #060809;
+    --bg-raised: #0d1117;
+    --blue: #2f9be0;
+    --blue-dim: #1c6699;
+    --cyan: #3ddbd9;
+    --text: #eaf2f7;
+    --text-dim: #7d8b96;
+    --line: #1c242c;
     --red: #ff5f4d;
-    --green: #7fd47a;
   }
 
   * { box-sizing: border-box; }
@@ -42,12 +41,12 @@
     line-height: 1.6;
   }
 
-  ::selection { background: var(--amber); color: #000; }
+  ::selection { background: var(--blue); color: #000; }
 
-  a { color: var(--amber); text-decoration: none; }
+  a { color: var(--blue); text-decoration: none; }
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--amber);
+    outline: 2px solid var(--blue);
     outline-offset: 2px;
   }
 
@@ -65,7 +64,7 @@
   }
   .topbar .wrap { display: flex; justify-content: space-between; align-items: center; }
   .topbar a { color: var(--text-dim); }
-  .topbar a:hover { color: var(--amber); }
+  .topbar a:hover { color: var(--blue); }
   .topbar nav { display: flex; gap: 20px; }
 
   .hero { padding: 64px 0 48px; }
@@ -81,12 +80,12 @@
   }
   .boot .prompt-line { color: var(--text); }
   .boot .dim { color: var(--text-dim); }
-  .boot .amber { color: var(--amber); font-weight: 700; }
+  .boot .blue { color: var(--blue); font-weight: 700; }
   .cursor {
     display: inline-block;
     width: 8px;
     height: 15px;
-    background: var(--amber);
+    background: var(--blue);
     margin-left: 2px;
     vertical-align: -2px;
     animation: blink 1s step-end infinite;
@@ -108,15 +107,15 @@
     margin: 0 0 20px;
     line-height: 1.35;
   }
-  .hero .tagline .amber { color: var(--amber); }
+  .hero .tagline .blue { color: var(--blue); }
 
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid var(--amber-dim);
-    color: var(--amber);
+    border: 1px solid var(--blue-dim);
+    color: var(--blue);
     padding: 11px 18px;
     border-radius: 4px;
     font-family: inherit;
@@ -127,7 +126,7 @@
     transition: background 0.15s, color 0.15s;
   }
   .btn:hover {
-    background: var(--amber);
+    background: var(--blue);
     color: #1a1200;
     text-decoration: none;
   }
@@ -140,9 +139,9 @@
     font-size: 13px;
     margin-bottom: 14px;
   }
-  .promptline .user { color: var(--green); }
+  .promptline .user { color: var(--cyan); }
   .promptline .at { color: var(--text-dim); }
-  .promptline .host { color: var(--amber); }
+  .promptline .host { color: var(--blue); }
   .promptline .cmd { color: var(--text); font-weight: 700; }
 
   section h2 {
@@ -162,7 +161,7 @@
     margin-top: 18px;
   }
   .presetlist .row { display: flex; gap: 10px; padding: 5px 0; }
-  .presetlist .name { color: var(--green); min-width: 90px; font-weight: 700; }
+  .presetlist .name { color: var(--cyan); min-width: 90px; font-weight: 700; }
   .presetlist .desc { color: var(--text-dim); }
 
   .grid {
@@ -176,7 +175,7 @@
     overflow: hidden;
   }
   .grid .cell { background: var(--bg-raised); padding: 20px 22px; }
-  .grid .cell .k { color: var(--amber); font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .grid .cell .k { color: var(--blue); font-weight: 700; font-size: 14px; margin-bottom: 6px; }
   .grid .cell p { margin: 0; font-size: 13.5px; }
   @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
 
@@ -190,8 +189,8 @@
     margin-top: 16px;
     color: var(--text);
   }
-  .code .c-kw { color: var(--amber); }
-  .code .c-str { color: var(--green); }
+  .code .c-kw { color: var(--blue); }
+  .code .c-str { color: var(--cyan); }
   .code .c-com { color: var(--text-dim); font-style: italic; }
 
   .downloads { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
@@ -217,7 +216,7 @@
   }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
   footer a { color: var(--text-dim); }
-  footer a:hover { color: var(--amber); }
+  footer a:hover { color: var(--blue); }
 
   @media (prefers-reduced-motion: reduce) {
     .cursor { animation: none; }
@@ -228,11 +227,12 @@
 
 <div class="topbar">
   <div class="wrap">
-    <a href="#top" style="color:var(--amber); font-weight:700;">nanOS</a>
+    <a href="#top" style="color:var(--blue); font-weight:700;">nanOS</a>
     <nav>
       <a href="#presets">presets</a>
       <a href="#plugins">plugins</a>
       <a href="#download">download</a>
+      <a href="nanctl.html" style="color:var(--cyan);">nanctl →</a>
       <a href="https://github.com/neofetch-tech/nanos" target="_blank" rel="noopener">github ↗</a>
     </nav>
   </div>
@@ -244,7 +244,7 @@
     <div class="boot" id="boot" aria-label="terminal boot sequence"></div>
 
     <h1>a terminal-first Linux distro</h1>
-    <p class="tagline">Built for machines that can't spare the RAM for a desktop <span class="amber">— and for people who'd rather live in a shell anyway.</span></p>
+    <p class="tagline">Built for machines that can't spare the RAM for a desktop <span class="blue">— and for people who'd rather live in a shell anyway.</span></p>
 
     <div class="cta-row">
       <a class="btn" href="#download">Download ISO</a>
@@ -338,9 +338,9 @@ nanos_hooks[<span class="c-str">"shell_prompt"</span>] = <span class="c-kw">func
     { t: "archlinux login: root", cls: "prompt-line", pause: 300 },
     { t: "Password: ", cls: "prompt-line", pause: 250 },
     { t: "", pause: 150 },
-    { t: "==================================", cls: "amber", pause: 20 },
-    { t: "   Welcome to nanOS", cls: "amber", pause: 20 },
-    { t: "==================================", cls: "amber", pause: 300 },
+    { t: "==================================", cls: "blue", pause: 20 },
+    { t: "   Welcome to nanOS", cls: "blue", pause: 20 },
+    { t: "==================================", cls: "blue", pause: 300 },
     { t: "", pause: 100 },
     { t: "Choose a shell to work with:", cls: "dim", pause: 100 },
     { t: "  1) bash", cls: "dim", pause: 60 },
