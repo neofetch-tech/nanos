@@ -1,11 +1,5 @@
 # nanOS
 
-+--------------------------------+
-|                                 |
-|            n a n O S           |
-|                                 |
-+--------------------------------+
-
 A terminal-first, Arch-based Linux distribution: no desktop environment by
 default, small RAM footprint, `nanctl` as the customization layer (TOML
 presets + sandboxed Lua plugins).
