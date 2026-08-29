@@ -1,10 +1,11 @@
 # nanOS
 
-  _ __   __ _ _ __   ___
- | '_ \ / _` | '_ \ / _ \
- | | | | (_| | | | | (_) |
- |_| |_|\__,_|_| |_|\___/
+ _ __   __ _ _ __   ___  ____
+| '_ \ / __| '_ \ / _ \/ ___|
+| | | | (__| | | | (_) \___ \
+|_| |_|\___|_| |_|\___/|____/
 
+   minimal · terminal-first
 
 A terminal-first, Arch-based Linux distribution: no desktop environment by
 default, small RAM footprint, `nanctl` as the customization layer (TOML
